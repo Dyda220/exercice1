@@ -8,14 +8,14 @@ env:
 jobs:
   job:
     runs-on: ubuntu-latest
-    if: ${{ github.event.name == 'push'}}
+    if: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v3
       - name: Run a one-line script 
         run: echo $var1 | echo $var3
   job1:
     runs-on: ubuntu-latest
-    if: ${{ github.event.name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v3
       - name: Run a one-line script
