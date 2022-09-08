@@ -7,20 +7,18 @@ env:
 jobs:
   job:
     runs-on: ubuntu-latest
+    if: ${{ github.event.push}}
     steps:
       - uses: actions/checkout@v3
-      - name: Run a one-line script
-        if: ${{ github.event.issue.push}} 
+      - name: Run a one-line script 
         run: echo $var1
   job:
     runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request}}
     steps:
       - uses: actions/checkout@v3
       - name: Run a one-line script
-        if: ${{ github.event.issue.pull_request}} 
-        run: echo $var2
-    
-      
+        run: echo $var2     
 
       
       
