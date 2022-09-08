@@ -2,19 +2,21 @@
 name: exercice1
 on: [push,pull_request] 
 env:
-  var1: "c'est un Push"
-  var2: "c'est un pull_request"
+  var1: c'est un Push
+  var2: c'est un pull_request
+  var3: ${{ github.event.push}}
 jobs:
   job:
     runs-on: ubuntu-latest
-    if: ${{ github.event.push == 'true'}}
+    if: ${{ github.event.name == 'push'}}
     steps:
       - uses: actions/checkout@v3
       - name: Run a one-line script 
         run: echo $var1
+        run: echo $var3
   job1:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request == 'true'}}
+    if: ${{ github.event.name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v3
       - name: Run a one-line script
