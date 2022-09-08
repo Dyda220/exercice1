@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run a one-line script
-        if: github.event.push
+        if: ${{ !github.event.issue.push }} 
         run: echo $var1
       
       - name: Run a one-line script
-        if: github.event.pull_request
+        if: ${{ !github.event.issue.pull_request }} 
         run: echo $var2
     
       
