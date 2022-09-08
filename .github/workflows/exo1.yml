@@ -1,8 +1,6 @@
 
 name: exercice1
-on: 
-  push: 
-  pull_request:
+on: [push, pull_request] 
 env:
   var1: "c'est un Push"
   var2: "c'est un pull_request"
