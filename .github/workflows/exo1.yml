@@ -1,0 +1,25 @@
+
+name: exercice1
+on: 
+  push: 
+  pull_request:
+env:
+  var1: "c'est un Push"
+  var2: "c'est un pull_request"
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        if: github.event.push
+        run: echo $var1
+      
+      - name: Run a one-line script
+        if: github.event.pull_request
+        run: echo $var2
+    
+      
+
+      
+      
