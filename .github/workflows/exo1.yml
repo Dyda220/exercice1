@@ -12,8 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run a one-line script 
-      - run: echo $var1
-      - run: echo $var3
+        run: echo $var1 | echo $var3
   job1:
     runs-on: ubuntu-latest
     if: ${{ github.event.name == 'pull_request' }}
